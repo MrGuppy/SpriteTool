@@ -14,6 +14,8 @@ namespace SpriteSheetToolEditor
 {
     public partial class SpriteEditor : Form
     {
+        Bitmap b;
+
         public SpriteEditor()
         {
             InitializeComponent();
@@ -41,38 +43,24 @@ namespace SpriteSheetToolEditor
             save.Filter = "Files|*.txt,*.png,*.jpg";
             save.DefaultExt = "txt";
             if(save.ShowDialog() == DialogResult.OK)
-                File.WriteAllText(save.FileName, "hello");
-        }
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Bitmap bitMap = new Bitmap("Koala.jpg");
-                bitMap.Save(@"C:\Users\s171736\Desktop\TestPic");
-            }
-              catch(Exception x)
-            {
-                MessageBox.Show("x.incorrct");
-            }
-
-           
-            
+                File.WriteAllText(save.FileName, "Koala.pjg");
         }
 
         private void bCreate_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
+
             if (open.ShowDialog() == DialogResult.OK)
             {
-                string text = System.IO.File.ReadAllText(open.FileName);
+                b = (Bitmap)Image.FromFile(open.FileName);
+                pictureBox1.Image = b;
             }
+          }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
+   
     }
 }

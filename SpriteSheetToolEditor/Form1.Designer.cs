@@ -43,19 +43,19 @@
             this.contactUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.bCreate = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.LoadedSprite = new System.Windows.Forms.HScrollBar();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bCreate = new System.Windows.Forms.Button();
             this.MenuStrip.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuStrip
@@ -152,6 +152,13 @@
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -160,6 +167,22 @@
             this.panel4.Controls.Add(this.panel5);
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.bCreate);
+            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // bCreate
+            // 
+            resources.ApplyResources(this.bCreate, "bCreate");
+            this.bCreate.Name = "bCreate";
+            this.bCreate.UseVisualStyleBackColor = true;
+            this.bCreate.Click += new System.EventHandler(this.bCreate_Click);
             // 
             // panel6
             // 
@@ -181,29 +204,6 @@
             resources.ApplyResources(this.LoadedSprite, "LoadedSprite");
             this.LoadedSprite.Name = "LoadedSprite";
             // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.bCreate);
-            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
-            // 
-            // bCreate
-            // 
-            resources.ApplyResources(this.bCreate, "bCreate");
-            this.bCreate.Name = "bCreate";
-            this.bCreate.UseVisualStyleBackColor = true;
-            this.bCreate.Click += new System.EventHandler(this.bCreate_Click);
-            // 
             // SpriteEditor
             // 
             resources.ApplyResources(this, "$this");
@@ -218,10 +218,10 @@
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

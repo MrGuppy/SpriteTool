@@ -14,3 +14,19 @@ c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\Spr
 C:\Users\s171736\Documents\Visual Studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\bin\Debug\en\SpriteSheetToolEditor.resources.dll
 C:\Users\s171736\Documents\Visual Studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.SpriteEditor.en.resources
 C:\Users\s171736\Documents\Visual Studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\en\SpriteSheetToolEditor.resources.dll
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\bin\Debug\SpriteSheetToolEditor.exe.config
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.exe
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.pdb
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\bin\Debug\SpriteSheetToolEditor.exe
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\bin\Debug\SpriteSheetToolEditor.pdb
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\bin\Debug\af\SpriteSheetToolEditor.resources.dll
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\bin\Debug\en\SpriteSheetToolEditor.resources.dll
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.csprojResolveAssemblyReference.cache
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.SpriteEditor.resources
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.Form2.resources
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.Properties.Resources.resources
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.SpriteEditor.af.resources
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.SpriteEditor.en.resources
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.csproj.GenerateResource.Cache
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\af\SpriteSheetToolEditor.resources.dll
+C:\Users\s171736\Documents\GitHub\SpriteTool\SpriteSheetToolEditor\obj\Debug\en\SpriteSheetToolEditor.resources.dll
