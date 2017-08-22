@@ -1,0 +1,16 @@
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\bin\Debug\SpriteSheetToolEditor.exe.config
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\bin\Debug\SpriteSheetToolEditor.exe
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\bin\Debug\SpriteSheetToolEditor.pdb
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.csprojResolveAssemblyReference.cache
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.Properties.Resources.resources
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.csproj.GenerateResource.Cache
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.exe
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.pdb
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.Form2.resources
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\bin\Debug\af\SpriteSheetToolEditor.resources.dll
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.SpriteEditor.resources
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.SpriteEditor.af.resources
+c:\users\s171736\documents\visual studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\af\SpriteSheetToolEditor.resources.dll
+C:\Users\s171736\Documents\Visual Studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\bin\Debug\en\SpriteSheetToolEditor.resources.dll
+C:\Users\s171736\Documents\Visual Studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\SpriteSheetToolEditor.SpriteEditor.en.resources
+C:\Users\s171736\Documents\Visual Studio 2015\Projects\SpriteSheetToolEditor\SpriteSheetToolEditor\obj\Debug\en\SpriteSheetToolEditor.resources.dll
