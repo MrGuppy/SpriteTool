@@ -19,6 +19,8 @@ namespace SpriteSheetToolEditor
         public SpriteEditor()
         {
             InitializeComponent();
+            
+            ///picturebox1.AllowDrop = true;
 
             //BitMap btmItems = new BitMap(); add Array of files across (.jpg, png, etc..)
             //"name of control".Items.AddRange(btmItems)
@@ -34,16 +36,48 @@ namespace SpriteSheetToolEditor
         private void MouseDown_Test(object sender, MouseEventArgs e){}
 
 
-
         private void saveProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog save = new SaveFileDialog();
 
-            save.Filter = "Files|*.txt,*.png,*.jpg";
-            save.DefaultExt = ".jpg";
-            if (save.ShowDialog() == DialogResult.OK)
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Files|*.gif,*.png,*.jpg";
+            save.Title = "Save File Location";
+            save.ShowDialog();
+
+            saveProjectToolStripMenuItem.Image = pictureBox1.Image;
+
+            if (save.FileName != "")
             {
-               
+                //saves file using OpenFile
+                FileStream fileStream = (FileStream)save.OpenFile();
+
+                try
+                {
+                    switch (save.FilterIndex)
+                    {
+                        case 1:
+                            saveProjectToolStripMenuItem.Image.Save(fileStream, System.Drawing.Imaging.ImageFormat.Gif);
+                            break;
+
+                        case 2:
+                            saveProjectToolStripMenuItem.Image.Save(fileStream, System.Drawing.Imaging.ImageFormat.Png);
+                            break;
+
+                        case 3:
+                            saveProjectToolStripMenuItem.Image.Save(fileStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            break;
+
+                    }
+                }
+
+                catch
+                {
+                    MessageBox.Show("ERROR: Load existing or create new image before saving.");
+                }
+
+
+
+                fileStream.Close();
             }
                 
         }
@@ -73,7 +107,7 @@ namespace SpriteSheetToolEditor
 
         private void tbDrag_Drop(object sender, DragEventArgs e)
         {
-            textBox1.Text = e.Data.GetData(DataFormats.Bitmap).ToString();
+            //textBox1.Text = e.Data.GetData(DataFormats.Bitmap).ToString();
         }
 
         private void bMouseDown(object sender, MouseEventArgs e)
@@ -108,6 +142,9 @@ namespace SpriteSheetToolEditor
             fs.AllowFullScreenAccess(this);
         }
 
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
