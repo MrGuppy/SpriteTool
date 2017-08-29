@@ -8,32 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
+using System.Diagnostics;
 
 namespace SpriteSheetToolEditor
 {
     public partial class SpriteEditor : Form
     {
-        Bitmap b;
+        Bitmap b = new Bitmap(200, 200);
+
+        //acts as the startpoint of event mousedown
+        private Point startPoint;
+        //the rectangle that will be drawn
+        private Rectangle rectangle = new Rectangle();
+        //the selection that will be used to grab the rectangle 
+        private Brush select = new SolidBrush(Color.FromArgb(100, 80, 150, 200));
+
+
+
 
         public SpriteEditor()
         {
             InitializeComponent();
-            
-            ///picturebox1.AllowDrop = true;
+
+
+
+            //picturebox1.AllowDrop = true;
 
             //BitMap btmItems = new BitMap(); add Array of files across (.jpg, png, etc..)
             //"name of control".Items.AddRange(btmItems)
         }
-
-        private void MenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e){}
-
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e){}
-
-        private void newWindowToolStripMenuItem_Click(object sender, EventArgs e){}
-        private void pictureBox1_Click(object sender, EventArgs e){ }
-      
-        private void MouseDown_Test(object sender, MouseEventArgs e){}
 
 
         private void saveProjectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,7 +53,7 @@ namespace SpriteSheetToolEditor
             {
                 //saves file using OpenFile
                 FileStream fileStream = (FileStream)save.OpenFile();
-
+             
                 try
                 {
                     switch (save.FilterIndex)
@@ -69,7 +72,7 @@ namespace SpriteSheetToolEditor
 
                     }
                 }
-
+                
                 catch
                 {
                     MessageBox.Show("ERROR: Load existing or create new image before saving.");
@@ -128,13 +131,20 @@ namespace SpriteSheetToolEditor
 
              public bool DenyFullscreenMode(Form DirectedForm)
              {
+                 DirectedForm.TopMost = false;
                  DirectedForm.FormBorderStyle = FormBorderStyle.Sizable;
                  DirectedForm.WindowState = FormWindowState.Normal;
 
                  return false;
              }
+
         }
 
+        private void exitFulscreenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FullscreenUtility fs = new FullscreenUtility();
+            fs.DenyFullscreenMode(this);
+        }
 
         private void FullScreen_Click(object sender, EventArgs e)
         {
@@ -142,9 +152,62 @@ namespace SpriteSheetToolEditor
             fs.AllowFullScreenAccess(this);
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
 
+
+        private void EMouseDown(object sender, MouseEventArgs e)
+        {
+            //finds the coordinates of the first event mouse down
+            startPoint = e.Location;
+            //allows for the control to be redrawn
+            Invalidate();
+        }
+
+        private void EMouseMove(object sender, MouseEventArgs e)
+        {
+            //checks to see if the left ,ouse button was pressed 
+            if(e.Button != MouseButtons.Left)
+            {
+                return;
+            }
+
+            Point endPoint = e.Location;
+            rectangle.Location = new Point(Math.Min(startPoint.X, endPoint.X),
+                                          (Math.Min(startPoint.Y, endPoint.Y)));
+            rectangle.Size = new Size(Math.Abs(startPoint.X - endPoint.X),
+                                     (Math.Abs(startPoint.Y - endPoint.Y)));
+            pictureBox1.Invalidate();
+        }
+
+        private void PB_Paint(object sender, PaintEventArgs e)
+        {
+            if(pictureBox1.Image != null)
+            {
+                //checks to see if the box has been clicked to draw 
+                if(rectangle != null && rectangle.Width > 0 && rectangle.Height > 0)
+                {
+                    e.Graphics.FillRectangle(select, rectangle);
+                }
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ContextMenuStrip cms = new ContextMenuStrip();
+            ToolStripMenuItem item1 = new ToolStripMenuItem();
+            item1.Text = "hello";
+
+            item1.Click += pictureBox1_Click;
+
+            cms.Items.Add(item1);
+            this.ContextMenuStrip = cms;
+
+            MessageBox.Show("testing...");
+        }
+
+        private void contactUsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.google.com/gmail");
+            MessageBox.Show("Contact via email:\nMarkSturtz62@gmail.com");
         }
     }
 }
