@@ -69,7 +69,6 @@ namespace SpriteSheetToolEditor
                         case 3:
                             saveProjectToolStripMenuItem.Image.Save(fileStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                             break;
-
                     }
                 }
                 
@@ -77,9 +76,6 @@ namespace SpriteSheetToolEditor
                 {
                     MessageBox.Show("ERROR: Load existing or create new image before saving.");
                 }
-
-
-
                 fileStream.Close();
             }
                 
@@ -209,5 +205,7 @@ namespace SpriteSheetToolEditor
             Process.Start("https://www.google.com/gmail");
             MessageBox.Show("Contact via email:\nMarkSturtz62@gmail.com");
         }
+
+
     }
 }
