@@ -30,18 +30,13 @@ namespace SpriteSheetToolEditor
         {
             InitializeComponent();
 
-
-
-            //picturebox1.AllowDrop = true;
-
-            //BitMap btmItems = new BitMap(); add Array of files across (.jpg, png, etc..)
-            //"name of control".Items.AddRange(btmItems)
+            pictureBox1.AllowDrop = true;
+           
         }
 
 
         private void saveProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Files|*.gif,*.png,*.jpg";
             save.Title = "Save File Location";
@@ -71,14 +66,12 @@ namespace SpriteSheetToolEditor
                             break;
                     }
                 }
-                
                 catch
                 {
                     MessageBox.Show("ERROR: Load existing or create new image before saving.");
                 }
                 fileStream.Close();
-            }
-                
+            }                
         }
 
         private void bCreate_Click(object sender, EventArgs e)
@@ -86,34 +79,12 @@ namespace SpriteSheetToolEditor
             OpenFileDialog open = new OpenFileDialog();
 
             if (open.ShowDialog() == DialogResult.OK)
-            {
-                b = (Bitmap)Image.FromFile(open.FileName);
-                pictureBox1.Image = b;
-            }
+                b = (Bitmap)Image.FromFile(open.FileName); pictureboxT1.Image = b;
+
         }
 
-        private void tbDrag_Enter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.Bitmap))
-            {
-                e.Effect = DragDropEffects.Move;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
-        }
-
-        private void tbDrag_Drop(object sender, DragEventArgs e)
-        {
-            //textBox1.Text = e.Data.GetData(DataFormats.Bitmap).ToString();
-        }
-
-        private void bMouseDown(object sender, MouseEventArgs e)
-        {
-            bCreate.DoDragDrop(bCreate, DragDropEffects.Copy | DragDropEffects.Move);
-        }
-
+        //Using a Fullscreen class that allows for fullscreen and to exit fullscreen 
+        //---------------------------------------------------------------------
         class FullscreenUtility
         {
              public bool AllowFullScreenAccess(Form DirectedForm)
@@ -124,7 +95,6 @@ namespace SpriteSheetToolEditor
 
                  return true;
              }
-
              public bool DenyFullscreenMode(Form DirectedForm)
              {
                  DirectedForm.TopMost = false;
@@ -133,9 +103,8 @@ namespace SpriteSheetToolEditor
 
                  return false;
              }
-
         }
-
+        //---------------------------------------------------------------------
         private void exitFulscreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FullscreenUtility fs = new FullscreenUtility();
@@ -147,8 +116,6 @@ namespace SpriteSheetToolEditor
             FullscreenUtility fs = new FullscreenUtility();
             fs.AllowFullScreenAccess(this);
         }
-
-
 
         private void EMouseDown(object sender, MouseEventArgs e)
         {
@@ -188,16 +155,8 @@ namespace SpriteSheetToolEditor
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            ContextMenuStrip cms = new ContextMenuStrip();
-            ToolStripMenuItem item1 = new ToolStripMenuItem();
-            item1.Text = "hello";
-
-            item1.Click += pictureBox1_Click;
-
-            cms.Items.Add(item1);
-            this.ContextMenuStrip = cms;
-
-            MessageBox.Show("testing...");
+             pictureBox1.Image = b;
+            
         }
 
         private void contactUsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -206,6 +165,113 @@ namespace SpriteSheetToolEditor
             MessageBox.Show("Contact via email:\nMarkSturtz62@gmail.com");
         }
 
+        //for picturebox1 main
+        private void PBOnDragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Bitmap))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
 
+        private void PBMouseDown(object sender, MouseEventArgs e)
+        {
+            pictureboxT1.DoDragDrop(pictureboxT1.Image, DragDropEffects.Copy | DragDropEffects.Move);
+        }
+
+        //main
+        private void PBOnDrop(object sender, DragEventArgs e)
+        {
+            //casting picturebox to a bitmap
+            pictureboxT1.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
+            pictureBox1.Image = pictureboxT1.Image;
+        }
+
+        private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+
+            if (open.ShowDialog() == DialogResult.OK)
+                b = (Bitmap)Image.FromFile(open.FileName); pictureBox1.Image = b;
+        }
+
+        private void ERightClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                ContextMenuStrip cms = new ContextMenuStrip();
+                ToolStripMenuItem item1 = new ToolStripMenuItem();
+
+                item1.Text = "hello";
+                
+                item1.Click += DisplayRightClick;
+                
+                cms.Items.Add(item1);
+                this.ContextMenuStrip = cms;
+            }
+        }
+        private void DisplayRightClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("testing...");
+        }
+
+        private void RotateLeft_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pictureBox1.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                pictureBox1.Refresh();
+            }
+
+            catch
+            {
+                MessageBox.Show("ERROR: Please Select and Image to Rotate");
+            }
+
+        }
+
+        private void RotateRight_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pictureBox1.Image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                pictureBox1.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("ERROR: Please Select and Image to Rotate");
+            }
+        }
+
+        private void Horizontal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pictureBox1.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                pictureBox1.Refresh();
+            }     
+            catch
+            {
+                MessageBox.Show("ERROR: Please Select and Image to Rotate");
+            }
+        }
+
+        private void Vertical_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pictureBox1.Image.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                pictureBox1.Refresh();
+            }
+
+            catch
+            {
+                MessageBox.Show("ERROR: Please Select and Image to Rotate");
+            }
+        }
     }
 }

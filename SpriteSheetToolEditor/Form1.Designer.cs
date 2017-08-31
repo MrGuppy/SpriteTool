@@ -42,49 +42,46 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tbDrag = new System.Windows.Forms.RichTextBox();
             this.bDrag1 = new System.Windows.Forms.Button();
             this.bCreate = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bCopy = new System.Windows.Forms.ToolStrip();
-            this.bSelect = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.bCut = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.bCopy1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureboxT1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
+            this.bCopy1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.bCut = new System.Windows.Forms.ToolStripButton();
+            this.bCopy = new System.Windows.Forms.ToolStrip();
+            this.bSelect = new System.Windows.Forms.ToolStripButton();
+            this.RotateLeft = new System.Windows.Forms.Button();
+            this.RotateRight = new System.Windows.Forms.Button();
+            this.Horizontal = new System.Windows.Forms.Button();
+            this.Vertical = new System.Windows.Forms.Button();
             this.MenuStrip.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.bCopy.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
-            this.toolStrip3.SuspendLayout();
-            this.toolStrip4.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureboxT1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.toolStrip4.SuspendLayout();
+            this.toolStrip3.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            this.bCopy.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuStrip
             // 
-            this.MenuStrip.BackColor = System.Drawing.Color.Silver;
+            this.MenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             resources.ApplyResources(this.MenuStrip, "MenuStrip");
             this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -105,6 +102,7 @@
             // 
             this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
             resources.ApplyResources(this.newProjectToolStripMenuItem, "newProjectToolStripMenuItem");
+            this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
             // 
             // saveProjectToolStripMenuItem
             // 
@@ -169,18 +167,12 @@
             resources.ApplyResources(this.contactUsToolStripMenuItem, "contactUsToolStripMenuItem");
             this.contactUsToolStripMenuItem.Click += new System.EventHandler(this.contactUsToolStripMenuItem_Click);
             // 
-            // tbDrag
-            // 
-            resources.ApplyResources(this.tbDrag, "tbDrag");
-            this.tbDrag.Name = "tbDrag";
-            // 
             // bDrag1
             // 
             this.bDrag1.AllowDrop = true;
             resources.ApplyResources(this.bDrag1, "bDrag1");
             this.bDrag1.Name = "bDrag1";
             this.bDrag1.UseVisualStyleBackColor = true;
-            this.bDrag1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bMouseDown);
             // 
             // bCreate
             // 
@@ -193,7 +185,7 @@
             // panel4
             // 
             resources.ApplyResources(this.panel4, "panel4");
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel4.Controls.Add(this.panel3);
             this.panel4.Controls.Add(this.panel1);
             this.panel4.Controls.Add(this.panel2);
@@ -215,72 +207,63 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.DragDrop += new System.Windows.Forms.DragEventHandler(this.PBOnDrop);
+            this.pictureBox1.DragEnter += new System.Windows.Forms.DragEventHandler(this.PBOnDragEnter);
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.PB_Paint);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EMouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.EMouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ERightClick);
             // 
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pictureBox7);
-            this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.bCreate);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureboxT1);
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Name = "panel1";
             // 
-            // bCopy
+            // pictureBox3
             // 
-            resources.ApplyResources(this.bCopy, "bCopy");
-            this.bCopy.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.bCopy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bSelect});
-            this.bCopy.Name = "bCopy";
-            this.bCopy.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
             // 
-            // bSelect
+            // pictureBox2
             // 
-            this.bSelect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.bSelect, "bSelect");
-            this.bSelect.Name = "bSelect";
-            this.bSelect.Padding = new System.Windows.Forms.Padding(10);
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
             // 
-            // toolStrip2
+            // pictureboxT1
             // 
-            resources.ApplyResources(this.toolStrip2, "toolStrip2");
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bCut});
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.pictureboxT1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.pictureboxT1, "pictureboxT1");
+            this.pictureboxT1.Name = "pictureboxT1";
+            this.pictureboxT1.TabStop = false;
+            this.pictureboxT1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PBMouseDown);
             // 
-            // bCut
+            // panel2
             // 
-            this.bCut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.bCut, "bCut");
-            this.bCut.Name = "bCut";
-            this.bCut.Padding = new System.Windows.Forms.Padding(10);
-            // 
-            // toolStrip3
-            // 
-            resources.ApplyResources(this.toolStrip3, "toolStrip3");
-            this.toolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bCopy1});
-            this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            // 
-            // bCopy1
-            // 
-            this.bCopy1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.bCopy1, "bCopy1");
-            this.bCopy1.Name = "bCopy1";
-            this.bCopy1.Padding = new System.Windows.Forms.Padding(10);
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.Vertical);
+            this.panel2.Controls.Add(this.Horizontal);
+            this.panel2.Controls.Add(this.RotateRight);
+            this.panel2.Controls.Add(this.RotateLeft);
+            this.panel2.Controls.Add(this.bDrag1);
+            this.panel2.Controls.Add(this.toolStrip4);
+            this.panel2.Controls.Add(this.toolStrip3);
+            this.panel2.Controls.Add(this.toolStrip2);
+            this.panel2.Controls.Add(this.bCopy);
+            this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
             // 
             // toolStrip4
             // 
@@ -298,55 +281,81 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Padding = new System.Windows.Forms.Padding(10);
             // 
-            // panel2
+            // toolStrip3
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.bDrag1);
-            this.panel2.Controls.Add(this.tbDrag);
-            this.panel2.Controls.Add(this.toolStrip4);
-            this.panel2.Controls.Add(this.toolStrip3);
-            this.panel2.Controls.Add(this.toolStrip2);
-            this.panel2.Controls.Add(this.bCopy);
-            this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
+            resources.ApplyResources(this.toolStrip3, "toolStrip3");
+            this.toolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bCopy1});
+            this.toolStrip3.Name = "toolStrip3";
+            this.toolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             // 
-            // pictureBox3
+            // bCopy1
             // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
+            this.bCopy1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.bCopy1, "bCopy1");
+            this.bCopy1.Name = "bCopy1";
+            this.bCopy1.Padding = new System.Windows.Forms.Padding(10);
             // 
-            // pictureBox2
+            // toolStrip2
             // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
+            resources.ApplyResources(this.toolStrip2, "toolStrip2");
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bCut});
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             // 
-            // pictureBox4
+            // bCut
             // 
-            resources.ApplyResources(this.pictureBox4, "pictureBox4");
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.TabStop = false;
+            this.bCut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.bCut, "bCut");
+            this.bCut.Name = "bCut";
+            this.bCut.Padding = new System.Windows.Forms.Padding(10);
             // 
-            // pictureBox5
+            // bCopy
             // 
-            resources.ApplyResources(this.pictureBox5, "pictureBox5");
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.TabStop = false;
+            resources.ApplyResources(this.bCopy, "bCopy");
+            this.bCopy.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.bCopy.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bSelect});
+            this.bCopy.Name = "bCopy";
+            this.bCopy.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             // 
-            // pictureBox6
+            // bSelect
             // 
-            resources.ApplyResources(this.pictureBox6, "pictureBox6");
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.TabStop = false;
+            this.bSelect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.bSelect, "bSelect");
+            this.bSelect.Name = "bSelect";
+            this.bSelect.Padding = new System.Windows.Forms.Padding(10);
             // 
-            // pictureBox7
+            // RotateLeft
             // 
-            resources.ApplyResources(this.pictureBox7, "pictureBox7");
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.TabStop = false;
+            resources.ApplyResources(this.RotateLeft, "RotateLeft");
+            this.RotateLeft.Name = "RotateLeft";
+            this.RotateLeft.UseVisualStyleBackColor = true;
+            this.RotateLeft.Click += new System.EventHandler(this.RotateLeft_Click);
+            // 
+            // RotateRight
+            // 
+            resources.ApplyResources(this.RotateRight, "RotateRight");
+            this.RotateRight.Name = "RotateRight";
+            this.RotateRight.UseVisualStyleBackColor = true;
+            this.RotateRight.Click += new System.EventHandler(this.RotateRight_Click);
+            // 
+            // Horizontal
+            // 
+            resources.ApplyResources(this.Horizontal, "Horizontal");
+            this.Horizontal.Name = "Horizontal";
+            this.Horizontal.UseVisualStyleBackColor = true;
+            this.Horizontal.Click += new System.EventHandler(this.Horizontal_Click);
+            // 
+            // Vertical
+            // 
+            resources.ApplyResources(this.Vertical, "Vertical");
+            this.Vertical.Name = "Vertical";
+            this.Vertical.UseVisualStyleBackColor = true;
+            this.Vertical.Click += new System.EventHandler(this.Vertical_Click);
             // 
             // SpriteEditor
             // 
@@ -359,7 +368,6 @@
             this.MainMenuStrip = this.MenuStrip;
             this.Name = "SpriteEditor";
             this.TopMost = true;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -367,22 +375,19 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.bCopy.ResumeLayout(false);
-            this.bCopy.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
-            this.toolStrip3.ResumeLayout(false);
-            this.toolStrip3.PerformLayout();
-            this.toolStrip4.ResumeLayout(false);
-            this.toolStrip4.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureboxT1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.toolStrip4.ResumeLayout(false);
+            this.toolStrip4.PerformLayout();
+            this.toolStrip3.ResumeLayout(false);
+            this.toolStrip3.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            this.bCopy.ResumeLayout(false);
+            this.bCopy.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,7 +414,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem exitFulscreenToolStripMenuItem;
-        private System.Windows.Forms.RichTextBox tbDrag;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStrip toolStrip4;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
@@ -419,12 +423,13 @@
         private System.Windows.Forms.ToolStripButton bCut;
         private System.Windows.Forms.ToolStrip bCopy;
         private System.Windows.Forms.ToolStripButton bSelect;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureboxT1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button Vertical;
+        private System.Windows.Forms.Button Horizontal;
+        private System.Windows.Forms.Button RotateRight;
+        private System.Windows.Forms.Button RotateLeft;
     }
 }
 
