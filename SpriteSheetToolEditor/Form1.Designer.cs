@@ -52,6 +52,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureboxT1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Vertical = new System.Windows.Forms.Button();
+            this.Horizontal = new System.Windows.Forms.Button();
+            this.RotateRight = new System.Windows.Forms.Button();
+            this.RotateLeft = new System.Windows.Forms.Button();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
@@ -60,10 +64,6 @@
             this.bCut = new System.Windows.Forms.ToolStripButton();
             this.bCopy = new System.Windows.Forms.ToolStrip();
             this.bSelect = new System.Windows.Forms.ToolStripButton();
-            this.RotateLeft = new System.Windows.Forms.Button();
-            this.RotateRight = new System.Windows.Forms.Button();
-            this.Horizontal = new System.Windows.Forms.Button();
-            this.Vertical = new System.Windows.Forms.Button();
             this.MenuStrip.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -265,6 +265,34 @@
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
+            // Vertical
+            // 
+            resources.ApplyResources(this.Vertical, "Vertical");
+            this.Vertical.Name = "Vertical";
+            this.Vertical.UseVisualStyleBackColor = true;
+            this.Vertical.Click += new System.EventHandler(this.Vertical_Click);
+            // 
+            // Horizontal
+            // 
+            resources.ApplyResources(this.Horizontal, "Horizontal");
+            this.Horizontal.Name = "Horizontal";
+            this.Horizontal.UseVisualStyleBackColor = true;
+            this.Horizontal.Click += new System.EventHandler(this.Horizontal_Click);
+            // 
+            // RotateRight
+            // 
+            resources.ApplyResources(this.RotateRight, "RotateRight");
+            this.RotateRight.Name = "RotateRight";
+            this.RotateRight.UseVisualStyleBackColor = true;
+            this.RotateRight.Click += new System.EventHandler(this.RotateRight_Click);
+            // 
+            // RotateLeft
+            // 
+            resources.ApplyResources(this.RotateLeft, "RotateLeft");
+            this.RotateLeft.Name = "RotateLeft";
+            this.RotateLeft.UseVisualStyleBackColor = true;
+            this.RotateLeft.Click += new System.EventHandler(this.RotateLeft_Click);
+            // 
             // toolStrip4
             // 
             resources.ApplyResources(this.toolStrip4, "toolStrip4");
@@ -328,34 +356,6 @@
             resources.ApplyResources(this.bSelect, "bSelect");
             this.bSelect.Name = "bSelect";
             this.bSelect.Padding = new System.Windows.Forms.Padding(10);
-            // 
-            // RotateLeft
-            // 
-            resources.ApplyResources(this.RotateLeft, "RotateLeft");
-            this.RotateLeft.Name = "RotateLeft";
-            this.RotateLeft.UseVisualStyleBackColor = true;
-            this.RotateLeft.Click += new System.EventHandler(this.RotateLeft_Click);
-            // 
-            // RotateRight
-            // 
-            resources.ApplyResources(this.RotateRight, "RotateRight");
-            this.RotateRight.Name = "RotateRight";
-            this.RotateRight.UseVisualStyleBackColor = true;
-            this.RotateRight.Click += new System.EventHandler(this.RotateRight_Click);
-            // 
-            // Horizontal
-            // 
-            resources.ApplyResources(this.Horizontal, "Horizontal");
-            this.Horizontal.Name = "Horizontal";
-            this.Horizontal.UseVisualStyleBackColor = true;
-            this.Horizontal.Click += new System.EventHandler(this.Horizontal_Click);
-            // 
-            // Vertical
-            // 
-            resources.ApplyResources(this.Vertical, "Vertical");
-            this.Vertical.Name = "Vertical";
-            this.Vertical.UseVisualStyleBackColor = true;
-            this.Vertical.Click += new System.EventHandler(this.Vertical_Click);
             // 
             // SpriteEditor
             // 
